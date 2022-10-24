@@ -16,7 +16,7 @@ func loginPage(w http.ResponseWriter, r *http.Request) {
 func handleRequest() {
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/login/", loginPage)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":3000", nil)
 }
 
 func main() {
