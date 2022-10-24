@@ -55,6 +55,7 @@ func connectToDatabase() {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	fmt.Fprintf(w, "kek")
 }
 
