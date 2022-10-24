@@ -10,7 +10,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func loginPage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "where will be a login page")
+	fmt.Fprintf(w, "there will be a login page")
 }
 
 func handleRequest() {
