@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
@@ -60,7 +61,39 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func loginPage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "there will be a login page")
+	connectToDatabase()
+	fmt.Println("Connected to database")
+	defer r.Body.Close()
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+
+	w.Header().Set("Content-Type", "application/json")
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+	type User struct {
+		Username string
+		Password string
+	}
+	var user User
+
+	err := json.NewDecoder(r.Body).Decode(&user)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	var password string
+	err = conn.QueryRow(context.Background(), "SELECT password FROM users WHERE username = $1", user.Username).Scan(&password)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	authToken := utils.GetToken()
+	conn.Query(context.Background(), "UPDATE users SET auth_token = $1 WHERE username = $2", authToken, user.Username)
+	fmt.Fprintf(w, "%s", authToken)
 }
 
 func takeUserWithId1(w http.ResponseWriter, r *http.Request) {
@@ -82,8 +115,8 @@ func handleRequest() {
 }
 
 func main() {
-	connectToDatabase()
-	fmt.Println("Connected to database")
+	//connectToDatabase()
+	//fmt.Println("Connected to database")
 	handleRequest()
 
 }

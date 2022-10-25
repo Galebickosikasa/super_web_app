@@ -1,6 +1,10 @@
 package utils
 
-import "time"
+import (
+	"math/rand"
+	"strconv"
+	"time"
+)
 
 func DoWithTries(fn func() error, attemtps int, delay time.Duration) (err error) {
 	for attemtps > 0 {
@@ -15,4 +19,8 @@ func DoWithTries(fn func() error, attemtps int, delay time.Duration) (err error)
 	}
 
 	return
+}
+
+func GetToken() string {
+	return strconv.FormatInt(int64(rand.Int()), 36)
 }
