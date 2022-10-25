@@ -2,6 +2,7 @@ package utils
 
 import (
 	"math/rand"
+	"net/http"
 	"strconv"
 	"time"
 )
@@ -19,6 +20,12 @@ func DoWithTries(fn func() error, attemtps int, delay time.Duration) (err error)
 	}
 
 	return
+}
+
+func SetCORSHeaders(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	(*w).Header().Set("Access-Control-Allow-Methods", "*")
+	(*w).Header().Set("Access-Control-Allow-Headers", "*")
 }
 
 func GetToken() string {
