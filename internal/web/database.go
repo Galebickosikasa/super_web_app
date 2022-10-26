@@ -6,7 +6,7 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
 	"os"
-	"super_web_app/utils"
+	"super_web_app/internal/utils"
 	"time"
 )
 
