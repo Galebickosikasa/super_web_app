@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add logger">
-      <change afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api.http" afterDir="false" />
+    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add config.yml, config.go and test-api.http">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/user/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/user/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/web/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/web/database.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logging/logging.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logging/logging.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api.http" beforeDir="false" afterPath="$PROJECT_DIR$/test-api.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,7 @@
       <recent name="$PROJECT_DIR$/internal" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.test-api | #1">
+  <component name="RunManager" selected="HTTP Request.All in test-api">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="super_web_app" />
       <working_directory value="$PROJECT_DIR$" />
@@ -102,13 +98,17 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="All in test-api" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test-api.http">
+      <method v="2" />
+    </configuration>
     <configuration name="test-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test-api.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.test-api | #1" />
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="HTTP Request.All in test-api" />
+        <item itemvalue="HTTP Request.test-api | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -133,7 +133,8 @@
     <MESSAGE value="init branch master" />
     <MESSAGE value="add simple user handler" />
     <MESSAGE value="add logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="add logger" />
+    <MESSAGE value="add config.yml, config.go and test-api.http" />
+    <option name="LAST_COMMIT_MESSAGE" value="add config.yml, config.go and test-api.http" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -18,12 +18,13 @@ var conn *pgx.Conn
 func main() {
 	logger := logging.GetLogger()
 	logger.Info("start")
+
 	conn = web.ConnectToDatabase()
 
 	router := httprouter.New()
 	cfg := config.GetConfig()
 
-	handler := user.NewHandler(logger)
+	handler := user.NewHandler(logger, conn)
 	handler.Register(router)
 
 	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%s", cfg.Listen.BindApi, cfg.Listen.Port))
