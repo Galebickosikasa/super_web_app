@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="code: refactor" />
+    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add simple user handler">
+      <change afterPath="$PROJECT_DIR$/pkg/logging/logging.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/web/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/web/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,11 +24,11 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.19.2" />
+  <component name="GOROOT" url="file:///usr/lib/go" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactor" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +61,11 @@
     &quot;last_opened_file_path&quot;: &quot;/home/runningcherry&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="super_web_app" />
@@ -106,7 +118,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minimum working code" />
     <MESSAGE value="code: refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="code: refactor" />
+    <MESSAGE value="init branch master" />
+    <MESSAGE value="add simple user handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="add simple user handler" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

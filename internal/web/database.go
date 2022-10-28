@@ -7,6 +7,7 @@ import (
 	"github.com/jackc/pgx/v5/pgconn"
 	"os"
 	"super_web_app/internal/utils"
+	"super_web_app/pkg/logging"
 	"time"
 )
 
@@ -27,7 +28,8 @@ func newClient(ctx context.Context, username, password, host, port, database str
 }
 
 func ConnectToDatabase() (conn *pgx.Conn) {
-	fmt.Println("Trying to connect to database")
+	logger := logging.GetLogger()
+	logger.Info("Trying to connect to database")
 
 	err := utils.DoWithTries(func() error {
 		_conn, err := newClient(context.Background(),
@@ -48,9 +50,9 @@ func ConnectToDatabase() (conn *pgx.Conn) {
 	}, 5, 5*time.Second)
 
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+		logger.Errorf("Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Println("Connected to database")
+	logger.Info("Connected to database")
 	return
 }
