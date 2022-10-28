@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/jackc/pgx/v5"
 	"github.com/julienschmidt/httprouter"
 	"net"
 	"net/http"
+	"super_web_app/internal/config"
 	"super_web_app/internal/user"
 	"super_web_app/internal/web"
 	"super_web_app/pkg/logging"
@@ -19,10 +21,12 @@ func main() {
 	conn = web.ConnectToDatabase()
 
 	router := httprouter.New()
-	handler := user.NewHandler()
+	cfg := config.GetConfig()
+
+	handler := user.NewHandler(logger)
 	handler.Register(router)
 
-	listener, err := net.Listen("tcp", ":3000")
+	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%s", cfg.Listen.BindApi, cfg.Listen.Port))
 
 	if err != nil {
 		panic(err)
@@ -33,6 +37,7 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
+	logger.Infof("server is listening port %s:%s", cfg.Listen.BindApi, cfg.Listen.Port)
 	logger.Fatal(server.Serve(listener))
 
 }

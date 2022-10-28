@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
 	"os"
+	"super_web_app/internal/config"
 	"super_web_app/internal/utils"
 	"super_web_app/pkg/logging"
 	"time"
@@ -31,13 +32,15 @@ func ConnectToDatabase() (conn *pgx.Conn) {
 	logger := logging.GetLogger()
 	logger.Info("Trying to connect to database")
 
+	cfg := config.GetConfig()
+
 	err := utils.DoWithTries(func() error {
 		_conn, err := newClient(context.Background(),
-			"api",
-			"8791",
-			"db.physphile.ru",
-			"5432",
-			"api",
+			cfg.Database.Username,
+			cfg.Database.Password,
+			cfg.Database.Host,
+			cfg.Database.Port,
+			cfg.Database.Database,
 		)
 
 		if err != nil {
