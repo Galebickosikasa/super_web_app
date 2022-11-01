@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"super_web_app/internal/config"
 	"super_web_app/internal/user"
-	"super_web_app/internal/web"
 	"super_web_app/pkg/logging"
+	"super_web_app/pkg/postgresql"
 	"time"
 )
 
@@ -19,10 +19,16 @@ func main() {
 	logger := logging.GetLogger()
 	logger.Info("start")
 
-	conn = web.ConnectToDatabase()
+	cfg := config.GetConfig()
+	conn = postgresql.ConnectToDatabase(postgresql.Config{
+		Username: cfg.Database.Username,
+		Password: cfg.Database.Password,
+		Host:     cfg.Database.Host,
+		Port:     cfg.Database.Port,
+		Database: cfg.Database.Database,
+	})
 
 	router := httprouter.New()
-	cfg := config.GetConfig()
 
 	handler := user.NewHandler(logger, conn)
 	handler.Register(router)
