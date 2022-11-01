@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="code: refactor" />
+    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add safe password access" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactor" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,12 +49,25 @@
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
+    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/runningcherry&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/drbatman&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.sdk&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/postgresql" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="super_web_app" />
       <working_directory value="$PROJECT_DIR$" />
@@ -82,9 +95,13 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="All in test-api" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test-api.http">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="HTTP Request.All in test-api" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +123,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minimum working code" />
     <MESSAGE value="code: refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="code: refactor" />
+    <MESSAGE value="add safe password access" />
+    <option name="LAST_COMMIT_MESSAGE" value="add safe password access" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

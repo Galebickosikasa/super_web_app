@@ -1,4 +1,4 @@
-package web
+package postgresql
 
 import (
 	"context"
@@ -6,7 +6,8 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
 	"os"
-	"super_web_app/utils"
+	"super_web_app/internal/utils"
+	"super_web_app/pkg/logging"
 	"time"
 )
 
@@ -17,8 +18,16 @@ type Client interface {
 	Begin(ctx context.Context) (pgx.Tx, error)
 }
 
-func newClient(ctx context.Context, username, password, host, port, database string) (*pgx.Conn, error) {
-	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s", username, password, host, port, database)
+type Config struct {
+	Username string
+	Password string
+	Host     string
+	Port     string
+	Database string
+}
+
+func newClient(ctx context.Context, cfg Config) (*pgx.Conn, error) {
+	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s", cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Database)
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 
@@ -26,17 +35,12 @@ func newClient(ctx context.Context, username, password, host, port, database str
 	return _conn, err
 }
 
-func ConnectToDatabase() (conn *pgx.Conn) {
-	fmt.Println("Trying to connect to database")
+func ConnectToDatabase(cfg Config) (conn *pgx.Conn) {
+	logger := logging.GetLogger()
+	logger.Info("Trying to connect to database")
 
 	err := utils.DoWithTries(func() error {
-		_conn, err := newClient(context.Background(),
-			"api",
-			"8791",
-			"db.physphile.ru",
-			"5432",
-			"api",
-		)
+		_conn, err := newClient(context.Background(), cfg)
 
 		if err != nil {
 			return err
@@ -48,9 +52,9 @@ func ConnectToDatabase() (conn *pgx.Conn) {
 	}, 5, 5*time.Second)
 
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+		logger.Errorf("Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Println("Connected to database")
+	logger.Info("Connected to database")
 	return
 }
