@@ -14,11 +14,11 @@ type Config struct {
 		Port    string `yaml:"port"`
 	} `yaml:"listen"`
 	Database struct {
-		Username string `yaml:"username"`
-		Password string `yaml:"password"`
-		Host     string `yaml:"host"`
-		Port     string `yaml:"port"`
-		Database string `yaml:"database"`
+		Username string `yaml:"username" env-default:"developer"`
+		Password string `env:"PASSWORD"`
+		Host     string `yaml:"host" env-default:"5432"`
+		Port     string `yaml:"port" env-default:"3000"`
+		Database string `yaml:"database" env-default:"user"`
 	} `yaml:"database"`
 }
 
