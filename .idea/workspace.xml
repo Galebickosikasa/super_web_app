@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add postgresql::Config">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-    </list>
+    <list default="true" id="9c0eb4ff-1ea7-414f-9d5e-95768c525754" name="Changes" comment="add safe password access" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +123,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minimum working code" />
     <MESSAGE value="code: refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="code: refactor" />
+    <MESSAGE value="add safe password access" />
+    <option name="LAST_COMMIT_MESSAGE" value="add safe password access" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

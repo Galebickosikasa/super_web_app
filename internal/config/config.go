@@ -9,15 +9,15 @@ import (
 type Config struct {
 	IsDebug *bool `yaml:"is_debug"`
 	Listen  struct {
-		Type    string `yaml:"type"`
-		BindApi string `yaml:"bind_api"`
-		Port    string `yaml:"port"`
+		Type    string `yaml:"type" env-default:"port"`
+		BindApi string `yaml:"bind_api" env-default:"0.0.0.0"`
+		Port    string `yaml:"0.0.0.0" env-default:"3000"`
 	} `yaml:"listen"`
 	Database struct {
 		Username string `yaml:"username" env-default:"developer"`
 		Password string `env:"PASSWORD"`
-		Host     string `yaml:"host" env-default:"5432"`
-		Port     string `yaml:"port" env-default:"3000"`
+		Host     string `yaml:"host" env-default:"physphile.ru"`
+		Port     string `yaml:"port" env-default:"5432"`
 		Database string `yaml:"database" env-default:"user"`
 	} `yaml:"database"`
 }

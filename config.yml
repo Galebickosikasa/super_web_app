@@ -7,7 +7,6 @@ listen:
   port: 3000
 database:
   username: developer
-  password: deltaalphagammabeta
   host: physphile.ru
   port: 5432
   database: developer
